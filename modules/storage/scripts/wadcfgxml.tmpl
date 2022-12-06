@@ -1,0 +1,56 @@
+<WadCfg>
+    <DiagnosticMonitorConfiguration overallQuotaInMB="5120">
+        <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/>
+        <Metrics resourceId="${vmid}">
+            <MetricAggregation scheduledTransferPeriod="PT1H"/>
+            <MetricAggregation scheduledTransferPeriod="PT1M"/>
+        </Metrics>
+        <PerformanceCounters scheduledTransferPeriod="PT1M">
+            <PerformanceCounterConfiguration counterSpecifier="\Processor Information(_Total)\% Processor Time" sampleRate="PT60S" unit="Percent" />
+            <PerformanceCounterConfiguration counterSpecifier="\Processor Information(_Total)\% Privileged Time" sampleRate="PT60S" unit="Percent" />
+            <PerformanceCounterConfiguration counterSpecifier="\Processor Information(_Total)\% User Time" sampleRate="PT60S" unit="Percent" />
+            <PerformanceCounterConfiguration counterSpecifier="\Processor Information(_Total)\Processor Frequency" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\System\Processes" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\SQLServer:SQL Statistics\SQL Re-Compilations/sec" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\System\System Up Time" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\System\Processor Queue Length" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Memory\% Committed Bytes In Use" sampleRate="PT60S" unit="Bytes" />
+            <PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT60S" unit="Bytes" />
+            <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT60S" unit="Bytes" />
+            <PerformanceCounterConfiguration counterSpecifier="\Memory\Cache Bytes" sampleRate="PT60S" unit="Bytes" />
+            <PerformanceCounterConfiguration counterSpecifier="\Memory\Pages/sec" sampleRate="PT60S" unit="CountPerSecond" />
+            <PerformanceCounterConfiguration counterSpecifier="\Memory\Page Faults/sec" sampleRate="PT60S" unit="CountPerSecond" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\% Disk Time" sampleRate="PT60S" unit="Percent" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\% Disk Read Time" sampleRate="PT60S" unit="Percent" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\% Free Space" sampleRate="PT60S" unit="Percent" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Free Megabytes" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Avg. Disk sec/Transfer" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Avg. Disk sec/Read" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Avg. Disk sec/Write" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Avg. Disk Queue Length" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Avg. Disk Read Queue Length" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\LogicalDisk(_Total)\Avg. Disk Write Queue Length" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\% Processor Time" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Virtual Bytes" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Private Bytes" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Thread Count" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Handle Count" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Current Connections" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/sec" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Total Method Requests/sec" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\SQLServer:General Statistics\User Connections" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\SQLServer:Memory Manager\Memory Grants Pending" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\SQLServer:SQL Statistics\Batch Requests/sec" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\SQLServer:SQL Statistics\SQL Compilations/sec" sampleRate="PT60S" unit="Count" />
+            <PerformanceCounterConfiguration counterSpecifier="\SQLServer:SQL Statistics\SQL Re-Compilations/sec" sampleRate="PT60S" unit="Count" />
+
+        </PerformanceCounters>
+
+        <WindowsEventLog scheduledTransferPeriod="PT1M">
+            <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]"/>
+            <DataSource name="Security!*[System[(band(Keywords,4503599627370496))]]"/>
+            <DataSource name="System!*[System[(Level = 1 or Level = 2)]]"/>
+        </WindowsEventLog>
+    </DiagnosticMonitorConfiguration>
+</WadCfg>
