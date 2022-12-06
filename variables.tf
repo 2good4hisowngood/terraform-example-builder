@@ -99,20 +99,6 @@ variable "allowed_ip" {
 variable "application_groups" {
   default = [
     {
-      name              = "crystal"
-      friendly_name     = "Crystal Reports"
-      description       = "Crystal Reports application"
-      import_field_name = "crystal_reports"
-      applications = [{
-        name           = "crystalreports" #Can't have an underscore in the name for azurerm_virtual_desktop_application
-        friendly_name  = "Crystal Reports"
-        description    = "Crystal Reports application"
-        path           = "C:\\Program Files (x86)\\SAP BusinessObjects\\SAP BusinessObjects Enterprise XI 4.0\\win64_x64\\crw64.exe"
-        icon_path      = "C:\\Program Files (x86)\\SAP BusinessObjects\\SAP BusinessObjects Enterprise XI 4.0\\win64_x64\\crw64.exe"
-        show_in_portal = true
-      }]
-    },
-    {
       name              = "ssms"
       friendly_name     = "Microsoft SQL Server Management Studio 18"
       description       = "Microsoft SQL Server Management Studio 18"
@@ -126,20 +112,6 @@ variable "application_groups" {
         show_in_portal = true
       }]
     },
-    # {
-    #   name              = "ssrs"
-    #   friendly_name     = "SQL Server Reporting Services"
-    #   description       = "SQL Server Reporting Services"
-    #   import_field_name = ""
-    #   applications = [{
-    #     name           = "ssrs"
-    #     friendly_name  = "SQL Server Reporting Services"
-    #     description    = "SQL Server Reporting Services"
-    #     path           = ""
-    #     icon_path      = ""
-    #     show_in_portal = true
-    #   }]
-    # },
     {
       name              = "msexcel"
       friendly_name     = "Excel 2016"
@@ -207,22 +179,12 @@ variable "backup_pair" {
   type = map(any)
 
   default = {
-    "Central US"       = "East US"
-    "East US"          = "West US"
-    "East US 2"        = "Central US"
-    "North Central US" = "South Central US"
-    "South Central US" = "North Central US"
-    "West US"          = "East US"
-    "US Gov Virginia"  = "US Gov Texas"
-    "US Gov Texas"     = "US Gov Arizona"
-    "US Gov Arizona"   = "US Gov Texas"
     "eastus"           = "westus"
     "westus"           = "eastus"
     "northcentralus"   = "southcentralus"
     "southcentralus"   = "northcentralus"
   }
-
-  description = "Location of backup datacenter. Should look like: 'North Central US'"
+  description = "Location of backup datacenter."
 }
 
 variable "client_name" {
