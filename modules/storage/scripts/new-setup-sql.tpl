@@ -5,8 +5,6 @@ $client = args[1]
 
 #############################
 # firewall-rules.ps1 - OK 
-#Rogelio's notes:
-#I have an old script that includes ports TCP 1434, SQL Service Brocker TCP 4022, SQL Browser TCP2382 , 80,443
 #############################
 Write-host "=======================CALLING SQL FIREWALL RULES MODULE======================="
 New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -LocalPort 1433 -Protocol TCP -Action Allow
